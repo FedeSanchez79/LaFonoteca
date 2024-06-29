@@ -54,7 +54,11 @@
                 }).then(() => {
                         setTimeout(() => {
                         localStorage.setItem('usuario', JSON.stringify(response.data.usuario)); // Guardo en localstorage
-                        this.$router.push('/catalogo'); // Lo mando al catálogo
+                        if (response.data.isAdmin) {
+                        this.$router.push('/catalogo'); // Administrador va al catálogo
+                        } else {
+                        this.$router.push('/membresia'); // No administrador va a la página de membresía
+                    }
                         }, 200); // Retraso la redirección, así evito el error ResizeObserver
                     });
             })

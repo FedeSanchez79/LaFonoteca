@@ -1,5 +1,4 @@
 const { Membresia } = require('../models');
-const upload = require('../config/multerConfig')
 
 exports.obtenerMembresia = async (req, res) => {
   try {

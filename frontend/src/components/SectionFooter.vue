@@ -25,5 +25,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .redes a{
+        padding: 2px;
+    }
 </style>
