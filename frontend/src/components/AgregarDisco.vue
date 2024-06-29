@@ -3,7 +3,7 @@
       <main id="main_contacto">
         <div class="container">
           <div class="form-container">
-            <h2>Agregar Disco</h2>
+            <h2 class="agregar">Agregar Disco</h2>
             <form v-if="disco" id="agregarDiscoForm" @submit.prevent="crearDisco" method="post">
               <div>
                 <label for="nombre">Nombre:</label>
@@ -19,20 +19,20 @@
                   <option v-for="genero in generos" :key="genero.idGenero" :value="genero.idGenero">{{ genero.tipo }}</option>
                 </select>
               </div>
-              <div>
-                <label for="anio">Año de lanzamiento:</label>
+              <div class="contact">
+                <label class="contact_inner" for="anio">Año de lanzamiento:</label>
                 <input type="number" id="anio" name="anio" placeholder="Ingrese el año de lanzamiento" v-model="disco.anioLanzamiento" required>
               </div>
-              <div>
-                <label for="precio">Precio:</label>
+              <div class="contact">
+                <label class="contact_inner" for="precio">Precio:</label>
                 <input type="number" id="precio" name="precio" placeholder="Ingrese el precio" v-model="disco.precio" required>
               </div>
-              <div>
-                <label for="imagen">Imagen:</label>
+              <div class="contact">
+                <label class="contact_inner" for="imagen">Imagen:</label>
                 <input type="file" id="imagen" name="imagen" @change="handleFileChange">
                 <img v-if="imagenPreview" :src="imagenPreview" alt="Vista previa de la imagen" class="imagen-preview">
               </div>
-              <button type="submit">Agregar Disco</button>
+              <button class="click" type="submit">Agregar Disco</button>
             </form>
             <div v-else>
               <p>Cargando datos del disco...</p> 

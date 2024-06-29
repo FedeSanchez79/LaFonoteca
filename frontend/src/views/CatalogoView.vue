@@ -11,7 +11,7 @@
             <img :src="`http://localhost:3000/uploads/${disco.imagen}`" alt="" class="img-item"> 
             <span class="precio-item">${{ disco.precio }}</span>
             
-            <button class="boton-item">Agregar al Carrito</button>
+            <button class="boton-item"><a href="/construccion">Agregar al Carrito</a></button>
   
             <button v-if="isAdmin" class="boton-editar" @click="editarDisco(disco)">Editar</button>
             <button v-if="isAdmin" class="boton-eliminar" @click="eliminarDisco(disco)">Eliminar</button>
