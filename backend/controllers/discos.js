@@ -6,8 +6,6 @@ exports.obtenerDiscos = async (req, res) => {
   try {
     const discos = await sequelize.query('SELECT idDisco, nombre, precio, artista, anioLanzamiento, GeneroIdGenero, imagen FROM Discos');
 
-    console.log(discos[0])
-
     res.json(discos[0]); // discos en formato JSON
   } catch (error) {
     console.error(error);
