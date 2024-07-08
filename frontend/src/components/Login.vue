@@ -38,7 +38,7 @@
     methods: {
         submitLogin() {
             console.log('Entrando a submitLogin...');
-            axios.post('http://localhost:3000/login', {
+            axios.post('/login', {
             email: this.email,
             password: this.password
             })

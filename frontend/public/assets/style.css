@@ -363,6 +363,8 @@ a {
  margin: auto;
 }
 
+
+
 /* SECCION CONTENEDOR DE ITEMS */
 
 .contenedor2 .contenedor-items{
@@ -428,10 +430,6 @@ a {
  padding: 5px 15px;
  border-radius: 5px;
  cursor: pointer;
-}
-
-.contenedor2 .contenedor-items .item .boton-item a{
-  color: #c8fbe6;
 }
 
 /* EN CONSTRUCCION */
@@ -781,22 +779,9 @@ textarea {
   margin-right: 5px;
 }
 
-.contact{
-  padding: 5px;
-}
-
-.contact_inner {
-  padding-right: 5px;
-}
-
-.agregar{
-  color: #0b5850;
-  text-transform: uppercase;
-}
-
 /* estilo para el botón submit */
 input[type=button] {
-  background-color: #0b5850;
+  background-color: #04AA6D;
   color: white;
   padding: 12px 20px;
   border: none;

@@ -28,7 +28,7 @@ const sequelize = new Sequelize(config.development);
     console.log('Tablas sincronizadas con la base de datos.');
 
   } catch (error) {
-    console.error('No se puede conectar a la base de datos:', error);
+    console.error('No se puede conectar a la base de datos:', error.message);
   }
 })();
 

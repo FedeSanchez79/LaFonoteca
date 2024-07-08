@@ -57,13 +57,14 @@ export default {
     disco: {}, // Inicializar disco como un objeto vacío
     generos: [],
     imagenPreview: null,
-    imagenFile: null,    
+    imagenFile: null,
+    base: this.$baseRoute
   };
 },
   beforeRouteEnter(to, from, next) {
     Promise.all([
-      axios.get(`http://localhost:3000/discos/${to.params.id}`),
-      axios.get('http://localhost:3000/generos')
+      axios.get(`/discos/${to.params.id}`),
+      axios.get('/generos')
     ])
     .then(([discoResponse, generosResponse]) => {
       next(vm => {
@@ -71,7 +72,7 @@ export default {
         vm.generos = generosResponse.data;
         // Establecer la imagen de vista previa si el disco ya tiene una imagen
         if (vm.disco.imagen) {
-          vm.imagenPreview = `http://localhost:3000/uploads/${vm.disco.imagen}`;
+          vm.imagenPreview = `${vm.base}/uploads/${vm.disco.imagen}`;
         }
       });
     })
@@ -99,7 +100,7 @@ export default {
         formData.append('imagen', this.imagenFile);
       }
 
-      axios.put(`http://localhost:3000/discos/${this.id}`, formData, {
+      axios.put(`/discos/${this.id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -139,6 +140,3 @@ export default {
   cursor: pointer;
 }
 </style>
-
-  
-  

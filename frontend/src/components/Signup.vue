@@ -48,7 +48,7 @@
     methods: {
       submitSignup() {
         console.log('Entrando a submitSignup...');
-        axios.post('http://localhost:3000/signup', { // endpoint
+        axios.post('/signup', { // endpoint
             nombre: this.nombre,
             apellido: this.apellido,
             email: this.email,
@@ -85,4 +85,3 @@
     }
   };
   </script>
-  

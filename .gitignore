@@ -19,7 +19,7 @@ Thumbs.db
 *.local.cnf
 
 # Environment variables
-.env
+backend/.env
 .env.*
 
 # IDEs and editors

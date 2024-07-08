@@ -17,10 +17,7 @@ dotnev.config({path:'./.env'});
 const bcrypt =  require('bcrypt');
 
 // Seteamos cors
-app.use(cors({
-  origin: 'http://localhost:8080', // frontend
-  credentials: true // Esto permite cookies de sesión!
-}));
+app.use(cors());
 
 // var de session
 const session = require('express-session');

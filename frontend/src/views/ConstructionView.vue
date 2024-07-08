@@ -13,8 +13,6 @@
   export default {
     name: 'ConstructionView',
     components: {
-      SectionHeader,
-      SectionFooter
     }
   };
   </script>

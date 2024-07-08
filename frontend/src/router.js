@@ -10,7 +10,8 @@ import Signup from './components/Signup.vue';
 import EditarDisco from './components/EditarDisco.vue'
 import AgregarDisco from './components/AgregarDisco.vue'
 
-const BASE_URL = process.env.VITE_BASE_URL || '/'; // Valor por defecto '/' en desarrollo
+
+const BASE_URL = '/'; // Valor por defecto '/' en desarrollo
 
 const router = createRouter({
   history: createWebHistory(BASE_URL),

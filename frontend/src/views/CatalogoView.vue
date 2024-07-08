@@ -8,14 +8,13 @@
         <div class="contenedor-items">
           <div v-for="disco in discos" :key="disco.idDisco" class="item">
             <span class="titulo-item">{{ disco.nombre }}</span>
-            <img :src="`http://localhost:3000/uploads/${disco.imagen}`" alt="" class="img-item"> 
+            <img :src="`${this.$baseRoute}/uploads/${disco.imagen}`" alt="" class="img-item">
             <span class="precio-item">${{ disco.precio }}</span>
             
-            <button class="boton-item"><a href="/construccion">Agregar al Carrito</a></button>
+            <button class="boton-item">Agregar al Carrito</button>
   
             <button v-if="isAdmin" class="boton-editar" @click="editarDisco(disco)">Editar</button>
             <button v-if="isAdmin" class="boton-eliminar" @click="eliminarDisco(disco)">Eliminar</button>
-
           </div>
         </div>
       </section>
@@ -28,13 +27,10 @@
   import SectionFooter from '@/components/SectionFooter.vue';
   import axios from 'axios';
   import Swal from 'sweetalert2';
+  import disco from '../components/disco.vue'
   
   export default {
     name: 'CatalogoView',
-    components: {
-      SectionHeader,
-      SectionFooter
-    },
     data() {
       return {
         discos: [],
@@ -46,7 +42,7 @@
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     this.isAdmin = usuario ? usuario.isStaff : false; // es admin?
 
-    axios.get('http://localhost:3000/discos')
+    axios.get('/discos')
       .then(response => {
         this.discos = response.data;
       })
@@ -77,7 +73,7 @@
       }).then((result) => {
         if (result.isConfirmed) {
           // Aquí enviarías una solicitud DELETE al backend para eliminar el disco
-          axios.delete(`http://localhost:3000/discos/${disco.idDisco}`)
+          axios.delete(`/discos/${disco.idDisco}`)
             .then(response => {
               // Eliminar el disco de la lista local
               this.discos = this.discos.filter(d => d.idDisco !== disco.idDisco);
@@ -92,4 +88,3 @@
   }
   };
   </script>
-  
