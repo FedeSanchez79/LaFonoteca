@@ -1,12 +1,14 @@
 const { Disco } = require('../models');
 const upload = require('../config/multerConfig')
 
+// LLAMDA DIRECTA A LA BASE DE DATOS
 exports.obtenerDiscos = async (req, res) => {
   try {
-    const discos = await Disco.findAll({
-      attributes: ['idDisco', 'nombre', 'precio', 'artista', 'anioLanzamiento', 'GeneroIdGenero', 'imagen'] 
-    }); // todos los discos de la base de datos
-    res.json(discos); // discos en formato JSON
+    const discos = await sequelize.query('SELECT idDisco, nombre, precio, artista, anioLanzamiento, GeneroIdGenero, imagen FROM Discos');
+
+    console.log(discos[0])
+
+    res.json(discos[0]); // discos en formato JSON
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al obtener los discos' });
